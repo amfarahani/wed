@@ -1,6 +1,6 @@
 # Name of the workflow
 # This is what you see in the GitHub Actions tab
-name: Deploy on laptop
+name: Deploy on Heroku
 
 # When should this workflow run?
 # 'push' means it runs every time code is pushed to the repository
@@ -45,6 +45,7 @@ jobs:
         run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
       - name: Run tests
         run: pytest -q
+
       - name: Install Heroku CLI
         run: curl https://cli-assets.heroku.com/install.sh | sh
       - name: deploy to Heroku
